@@ -1,0 +1,7 @@
+# Personal exports must never be committed.
+AMG_Nutrition_Personal_Backup_*.json
+AMG_Nutrition_Personal_Log.csv
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
