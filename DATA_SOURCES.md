@@ -4,8 +4,8 @@
 
 The two user-supplied recipe archives are the authoritative catalog inputs:
 
-- `Recipe_Atlas_250_Dishes_Complete(1).zip`, SHA256 `1087cac44629249c454cb57adf99fb245930840aee45cf25f664fcf39fd3a237`
-- `Dessert_Snack_Fruit_200_Complete(1).zip`, SHA256 `67f24db836a9b02c2f7d03e7b3ee6f82813a469cb7bf9a6334870fa1923112d7`
+- `Recipe_Atlas_250_Dishes_Complete(1).zip`
+- `Dessert_Snack_Fruit_200_Complete(1).zip`
 
 Their JSON nutrition records were merged, preserving all raw quantities, edible masses, liquid-density conversions, counts, servings, per-ingredient values, totals and per-serving values. Sixteen exact duplicate version records were merged; each retains both original source IDs. The `source_recipe_map` maps all 900 original version records to the 884 canonical recipes. There are also 40 complete-plate versions (20 traditional/healthy pairs).
 
