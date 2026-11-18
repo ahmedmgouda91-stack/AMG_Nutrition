@@ -41,40 +41,6 @@ Custom foods require a reference quantity, unit, all four nutrition values and a
 | Canonical ingredient records | 254 | — |
 
 Traditional and Healthy variants are retained at 50/50. Shared dishes appear in both collection views, with one canonical record and both source references. No differing formulation was discarded. Original raw ingredient weights, source nutrition values and servings are preserved. This app does not invent missing nutrient values. See [DATA_SOURCES.md](DATA_SOURCES.md) for gaps, checks and target-engine changes.
-
-## GitHub / GitHub Pages
-
-Upload the **contents** of this folder to the repository root: `index.html`, `assets/`, `manifest.webmanifest`, `sw.js` and the remaining source/documentation folders. A built index is already included. In repository **Settings → Pages**, choose **Deploy from a branch → main → /(root) → Save**. Use the branch you actually uploaded to if different. Publication visibility is controlled by GitHub; this package does not publish anything.
-
-ارفع محتويات المجلد لجذر المستودع، ثم **Settings → Pages → Deploy from a branch → main → /(root) → Save**. التطبيق جاهز بدون Build. الحزمة لا تنشئ مستودعًا ولا تنشره تلقائيًا.
-
-Official guide: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
-On HTTPS, the included service worker caches the app after a successful first visit. Reopen once while connected before relying on hosted offline access. Browser installation support varies; if no Install option is offered, use the browser or add a home-screen shortcut. Standalone local HTML does not use a service worker. When updating hosted files, change the cache version in `sw.js`. On first deployment the directory containing `sw.js` is its scope; paths support GitHub Pages project subdirectories.
-
-## Build and test
-
-Only needed to change source code or data. Python 3 builds the self-contained HTML using the standard library:
-
-```sh
-python3 tools/build.py
-node tests/engine.test.cjs
-node tests/week-planner.test.cjs
-```
-
-Optional browser tests require Playwright and a Chromium executable in your own development environment:
-
-```sh
-PLAYWRIGHT_MODULE=playwright CHROMIUM_PATH=/path/to/chromium node tests/browser.test.cjs
-PLAYWRIGHT_MODULE=playwright CHROMIUM_PATH=/path/to/chromium node tests/hosted.test.cjs
-```
-
-The browser tests use synthetic profile data in an isolated browser context, never saved into the delivered HTML. Screenshots are internal test output in a sibling `amg_nutrition` directory. Reports contain results only. `src/engine.js` owns all target calculations; `src/planner.js` owns portion matching and grocery aggregation; `src/planner-ui.js` owns the weekly calendar and shopping interface; `src/app.js` owns the UI, profile storage and logging. `data/nutrition-data.json` is public catalog data, separate from personal state. To deploy, no Node or Python installation is required.
-
-Modern Chrome, Edge, Safari and Firefox support the main app features. File downloads and local-file persistence depend on browser/device settings. If a phone preview does not execute HTML, open the downloaded file in a browser or use your GitHub Pages deployment. Keep regular backups, especially for local files and private browsing.
-
-The supplied logo is used unchanged as an image; it is not claimed to be a vector or legally exclusive trademark. No source-code license is selected in this package. Choose a repository license before granting reuse rights.
-
 ## Version 1.1
 
 Removed built-in Ingredient CSV, Recipe CSV, Fruit CSV and Public Database JSON export controls. Personal backups and the active-profile personal log export remain. The public app bundle still contains the data required for offline use; removing export buttons is not encryption. No open-source license is applied. Repository visibility is your GitHub setting; no upload or publication is performed by the app.
